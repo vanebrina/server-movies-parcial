@@ -18,8 +18,11 @@ const createMovie = async (req, res) => {
             country
         } = req.body;
 
-        // const Poster = req.file ? req.file.filename : null;
-        // console.log(Poster);
+        const poster = []
+        req.files.forEach(file => {
+            poster.push(file.originalname);
+        });
+        console.log(poster);
 
         const newMovie = await movieModel.create({
             title,
@@ -45,3 +48,6 @@ const createMovie = async (req, res) => {
     }
 };
 
+module.exports = {
+    createMovie
+};
