@@ -15,6 +15,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post('/new-movie', upload.array('poster'), movieController.createMovie);
+router.get("/", movieController.listMovie);
+router.get("/:id", movieController.getMovie);
+router.patch("/edit/:id", upload.array('poster'), movieController.editMovie);
+router.delete("/delete/:id", movieController.deleteMovie);
 
 
 module.exports = router;
