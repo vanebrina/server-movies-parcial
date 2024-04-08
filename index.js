@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 //que parsea el cuerpo de las solicitudes entrantes
 //en formato JSON, multipartes y lo convierte en un objeto java Script
 const bodyParser = require('body-parser');
+const movieRoutes = require('./src/routes/movie_routes');
 
 const app = express();
 app.use(bodyParser.json());
@@ -36,3 +37,4 @@ const mongo_connect = () => {
 };
 
 //rutas
+app.use('/api/v1/movies', movieRoutes)
