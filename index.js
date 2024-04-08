@@ -28,7 +28,7 @@ const mongo_connect = () => {
                 console.log("Connected to MongoDB");
             })
             .catch ((err) => {
-                console.log("Connected error in the bd" + ' ' + err.message);
+                console.log("Connection error" + ' ' + err.message);
             });
     } catch (err) {
         console.log(err);
